@@ -9,11 +9,11 @@ const MainLayout = () => {
             <Navbar/>
         </header>
 
-        <main className="flex-1 w-[97vw]">
+        <main className="flex-1 w-[97vw] mt-15">
           <Outlet/>
         </main>
 
-        <footer>
+        <footer className="mt-10">
           <Footer/>
         </footer>
     </div>
