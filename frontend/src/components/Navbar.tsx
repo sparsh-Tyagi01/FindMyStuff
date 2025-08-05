@@ -13,24 +13,24 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="px-2 py-1 bg-white shadow-[0px_0px_10px] rounded-[5px]">
+    <div className="w-full fixed top-0 left-0 z-50 bg-white border-b border-black/20 px-8 py-2 shadow-md">
       <div className="flex justify-between items-center">
         <img src="/findmystuff.png" alt="logo" className="w-40" />
 
-        <div className="hidden md:flex">
-          {navItems.map((item) => (
-            <motion.div
-              key={item.label}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="mr-4"
-            >
-              <Link to={item.to} className="font-medium text-emerald-800">
-                {item.label}
-              </Link>
-            </motion.div>
-          ))}
-        </div>
+        <div className="hidden md:flex justify-center flex-1 space-x-8">
+  {navItems.map((item) => (
+    <motion.div
+      key={item.label}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.95 }}
+    >
+      <Link to={item.to} className="font-medium text-emerald-800">
+        {item.label}
+      </Link>
+    </motion.div>
+  ))}
+</div>
+
 
         <div className="hidden md:flex">
           <div className="flex justify-center items-center mr-4">
@@ -55,14 +55,15 @@ const Navbar = () => {
           className="md:hidden cursor-pointer flex justify-center items-center"
           onClick={() => setOpenMenu(!openMenu)}
         >
-          <div className="flex justify-center items-center mr-4">
-            <Search className="text-black/50" />
-            <input
-              type="text"
-              placeholder="Search..."
-              className="focus:outline-none border-y-2 border-r-2 border-black/50 rounded-[5px] px-2 w-20"
-            />
-          </div>
+          <div className="flex items-center border border-gray-300 rounded-md px-2 w-64 bg-gray-50 focus-within:ring-2 focus-within:ring-emerald-500">
+  <Search className="text-black/50 mr-2" />
+  <input
+    type="text"
+    placeholder="Search for items..."
+    className="bg-transparent w-full py-1 focus:outline-none"
+  />
+</div>
+
           {openMenu ? <X size={28} /> : <Menu size={28} />}
         </div>
       </div>
